@@ -1,0 +1,10 @@
+<div class="form-wrapper">
+  <h3>User Register</h3>
+  <form [formGroup]='listingForm' (ngSubmit)='newListing()'>
+    <input type="text" placeholder="Enter Title"  id="" formControlName="title">
+    <input type="text" placeholder="Enter Price" id="" formControlName="price">
+    <input type="text" placeholder="Enter Loclity"  id="" formControlName="locality">
+    <textarea type="text" placeholder="Enter Details here" rows="5" aria-atomic="true" id="" formControlName="details"></textarea>
+    <input type="submit" value="Register" [disabled]="!listingForm.valid">
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="infor-wrap">
+  <h4>{{ listing.title }}</h4>
+  <h5>Price: {{ listing.price }} | Locality: {{ listing.locality }}</h5>
+  <p>Details: {{ listing.details }}</p>
+  <button (click)="showEdit()">Edit</button>
+  <button class="btn-delete">Delete</button>
+</div>
+<!-- <ng-container *ngFor="vm$ | async as vm">
+  {{ vm.id }}
+  {{ vm.listing | json }}
+</ng-container> -->
+<div class="form-wrapper" *ngIf="showForm">
+  <h3>Edit Listing </h3>
+  <form [formGroup]='editListingForm' (ngSubmit)='editListing()'>
+    <input type="text" placeholder="Enter Title" [ngModel]="listing.title"  id="" formControlName="title">
+    <input type="text" placeholder="Enter Price" [ngModel]="listing.price" id="" formControlName="price">
+    <input type="text" placeholder="Enter Loclity" [ngModel]="listing.locality"  id="" formControlName="locality">
+    <textarea type="text" placeholder="Enter Details here" [ngModel]="listing.details" rows="5" aria-atomic="true" id="" formControlName="details"></textarea>
+    <input type="submit" value="Done" [disabled]="!editListingForm.valid">
+  </form>
+</div>
+
